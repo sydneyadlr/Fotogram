@@ -3,7 +3,8 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>Fotogram</title>
+        <link rel="shortcut icon" href="./img/Group.png" type="image/x-icon">
         <link rel="stylesheet" href="style.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -11,9 +12,9 @@
             href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
             rel="stylesheet"
         />
-        <script src="script.js"></script>
+        <script src="script.js" defer></script>
     </head>
-    <body>
+    <body onload="render()">
         <header>
             <div class="content">
                 <img src="./img/Capa_1.png" alt="" />
@@ -23,31 +24,38 @@
             <section class="content">
                 <h1>Your personal photo album</h1>
 
-                <div class="main-img">
-                    <img src="./img/Component 10.png" alt="" />
-                    <img src="./img/Component 11.png" alt="" />
-                    <img src="./img/Component 12.png" alt="" />
-                    <img src="./img/Component 13.png" alt="" />
-                    <img src="./img/Component 14.png" alt="" />
-                    <img src="./img/Component 15.png" alt="" />
-                    <img src="./img/Component 16.png" alt="" />
-                    <img src="./img/Component 17.png" alt="" />
-                    <img src="./img/Component 6.png" alt="" />
-                    <img src="./img/Component 7.png" alt="" />
-                    <img src="./img/Component 8.png" alt="" />
-                    <img src="./img/Component 9.png" alt="" />
-                </div>
-                <dialog>
-                    <header></header>
-                    <main></main>
-                    <footer></footer>
+                <div id="contentRef"></div>
+                <dialog onclick="closeOverlay()" id="overlay-section">
+                    <div
+                        class="overlay-content"
+                        onclick="event.stopPropagation()"
+                    >
+                        <header class="overlay-header">
+                            <p id="img-title"></p>
+                            <button class="close-btn" onclick="closeOverlay()">
+                                ✕
+                            </button>
+                        </header>
+
+                        <main class="overlay-main">
+                            <div id="overlay-images"></div>
+                        </main>
+
+                        <footer class="overlay-footer">
+                            <button class="arrow" onclick="previousOverlayImage()"><img src="./img/Union.png" alt="" />
+                            </button>
+                            <span id="counter"></span>
+                            <button class="arrow-2" onclick="nextOverlayImage()"><img src="./img/Union.png" alt="" />
+                            </button>
+                        </footer>
+                    </div>
                 </dialog>
             </section>
         </main>
         <footer>
             <div class="content">
                 <img src="./img/Logo.png" alt="" />
-                <p>2026 Developer Akademie GmbH</p>
+                <p>© 2026 Developer Akademie GmbH</p>
             </div>
         </footer>
     </body>
